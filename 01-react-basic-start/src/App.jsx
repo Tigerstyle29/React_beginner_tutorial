@@ -1,5 +1,6 @@
 import Header from './components/Header'
 import WayToTeach from './components/WayToTeach'
+import Button from './components/Button/Button'
 import { ways } from './data'
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <section>
           <h3>Чем мы отличаемся от других</h3>
           
+          <Button /> 
         </section>
       </main>
     </div>
