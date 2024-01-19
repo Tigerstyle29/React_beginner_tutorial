@@ -24,7 +24,9 @@ function App() {
         <section>
           <h3>Чем мы отличаемся от других</h3>
           
-          <Button /> 
+          <Button>Подход</Button>
+          <Button>Доступность</Button>
+          <Button>Концентрация</Button>          
         </section>
       </main>
     </div>
