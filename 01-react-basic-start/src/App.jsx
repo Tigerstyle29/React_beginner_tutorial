@@ -1,11 +1,14 @@
 import Header from './components/Header'
 import WayToTeach from './components/WayToTeach'
 import Button from './components/Button/Button'
-import { ways } from './data'
+import { useState } from 'react'
+import { ways, differences } from './data'
 
 function App() {
+  const [ content, setContent] = useState('Нажми на кнопку')
+
   function handleClick(type) {
-    console.log('button clicked', type)
+    setContent(type)
   }
 
   return (
@@ -30,7 +33,9 @@ function App() {
           
           <Button onClick={() => handleClick('way')}>Подход</Button>
           <Button onClick={() => handleClick('easy')}>Доступность</Button>
-          <Button onClick={() => handleClick('program')}>Концентрация</Button>          
+          <Button onClick={() => handleClick('program')}>Концентрация</Button>   
+
+          <p>{differences[content]}</p>    
         </section>
       </main>
     </div>
