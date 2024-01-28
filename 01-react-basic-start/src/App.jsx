@@ -5,11 +5,20 @@ import { useState } from 'react'
 import { ways, differences } from './data'
 
 function App() {
-  const [ content, setContent] = useState('Нажми на кнопку')
+  const [ contentType, setContentType] = useState(null)
 
   function handleClick(type) {
-    setContent(type)
+    setContentType(type)
   }
+
+  // let tabContent = null
+
+  // if (contentType) {
+  //   tabContent = <p>{differences[contentType]}</p>
+  // } else {
+  //   tabContent = <p>Нажми на кнопку</p>
+  // }
+
 
   return (
     <div>
@@ -35,7 +44,20 @@ function App() {
           <Button onClick={() => handleClick('easy')}>Доступность</Button>
           <Button onClick={() => handleClick('program')}>Концентрация</Button>   
 
-          <p>{differences[content]}</p>    
+          {/* {contentType ? (
+            <p>{differences[contentType]}</p>
+          ) : (
+            <p>Нажми на кнопку</p>
+          )}    */}
+
+          {/* {!contentType ? <p>Нажми на кнопку</p> : null}
+          {contentType ? <p>{differences[contentType]}</p> : null} */}
+
+          {!contentType && <p>Нажми на кнопку</p>}
+          
+          {contentType && <p>{differences[contentType]}</p>}
+
+          {/* {tabContent} */}
         </section>
       </main>
     </div>
