@@ -28,21 +28,32 @@ function App() {
           <h3>Наш подход к обучению</h3>
 
           <ul>
-            <WayToTeach
-              title={ways[0].title} 
-              description={ways[0].description}
-            />
-            <WayToTeach {...ways[1]} />
-            <WayToTeach {...ways[2]} />
-            <WayToTeach {...ways[3]} />
+            {ways.map((way) => (
+              <WayToTeach key={way.title} {...way} />
+            ))}
           </ul>
         </section>
         <section>
           <h3>Чем мы отличаемся от других</h3>
           
-          <Button onClick={() => handleClick('way')}>Подход</Button>
-          <Button onClick={() => handleClick('easy')}>Доступность</Button>
-          <Button onClick={() => handleClick('program')}>Концентрация</Button>   
+          <Button 
+            isActive={contentType === 'way'}
+            onClick={() => handleClick('way')}
+          >
+            Подход
+          </Button>
+          <Button 
+            isActive={contentType === 'easy'}
+            onClick={() => handleClick('easy')}
+          >
+            Доступность
+          </Button>
+          <Button
+            isActive={contentType === 'program'} 
+            onClick={() => handleClick('program')}
+          >
+            Концентрация
+          </Button>   
 
           {/* {contentType ? (
             <p>{differences[contentType]}</p>
@@ -54,7 +65,7 @@ function App() {
           {contentType ? <p>{differences[contentType]}</p> : null} */}
 
           {!contentType && <p>Нажми на кнопку</p>}
-          
+
           {contentType && <p>{differences[contentType]}</p>}
 
           {/* {tabContent} */}
