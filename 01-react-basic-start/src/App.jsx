@@ -4,6 +4,7 @@ import DifferencesSection from './components/DifferencesSection'
 import IntroSection from './components/introSection'
 import TabsSection from './components/TabsSection'
 import FeedBackSection from './components/FeedbackSection'
+import { useState } from 'react'
 
 function App() {
   const [tab, setTab] = useState('feedback') 
@@ -13,12 +14,16 @@ function App() {
       <Header />
       <main>
         <IntroSection />
-        <TabsSection />
+        <TabsSection active={tab} onChange={(current) => setTab(current)} />
 
-        <TeachingSection />
-        <DifferencesSection />
+        {tab === 'main' && (
+          <>
+            <TeachingSection />
+            <DifferencesSection />
+          </>
+        )}
 
-        <FeedBackSection />
+        {tab === 'feedback' && <FeedBackSection />}
       </main>
     </>
   )
