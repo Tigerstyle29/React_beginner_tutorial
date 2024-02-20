@@ -22,6 +22,7 @@ export default function EffectSection() {
                 Quibusdam architecto dignissimos inventore voluptate? 
                 Sequi aliquam temporibus suscipit delectus illo inventore repudiandae reprehenderit quod, e
                 xpedita ipsam?</p>
+                <Button onClick={() => setModal(false)}>Close modal</Button>
             </Modal>
         </section>
     )
